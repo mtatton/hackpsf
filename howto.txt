@@ -1,0 +1,7 @@
+./conv.sh
+./conv.sh: 1: ./conv.sh: otf2bdf: not found
+sed: can't read hack.bdf: No such file or directory
+sed: can't read hack.bdf: No such file or directory
+./conv.sh: 20: ./conv.sh: psf2txt: not found
+./conv.sh: 21: ./conv.sh: psf2txt: not found
+./conv.sh: 24: ./conv.sh: cannot open hack.psfu: No such file

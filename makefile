@@ -1,0 +1,2 @@
+ALL:
+	./conv.sh
