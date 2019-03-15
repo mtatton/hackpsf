@@ -1,18 +1,18 @@
 #!/bin/bash
 if [ $1 = 0 ]; then
-  otf2bdf hack.ttf -c C -o hack.bdf -rh 120 -rv 100 -p 40 # 32x64
+  otf2bdf hack.ttf -c C -o hack.bdf -rh 110 -rv 100 -p 40 # 32x64
 fi
 if [ $1 = 1 ]; then
   otf2bdf hack.ttf -c C -o hack.bdf -rh 090 -rv 100 -p 21 # 16x32
 fi
 if [ $1 = 2 ]; then
-  otf2bdf hack.ttf -c C -o hack.bdf -rh 80 -rv 100 -p 11 # 08x16
+  otf2bdf hack.ttf -c C -o hack.bdf -rh 080 -rv 100 -p 11 # 08x16
 fi 
 
 
 AV=$( sed -n 's,AVERAGE_WIDTH ,,p' hack.bdf )
 if [ $1 = 0 ]; then
-  AV=$(( ( AV + 20 ) / 10 * 10 )) # 32x64
+  AV=$(( ( AV + 30 ) / 10 * 10 )) # 32x64
 fi
 if [ $1 = 1 ]; then
   AV=$(( ( AV + 40) / 10 * 10 )) # 16x32
@@ -58,6 +58,6 @@ sudo showconsolefont
 
 read -n 1 x
 
-#qodem
+qodem
 
 #sudo setfont
