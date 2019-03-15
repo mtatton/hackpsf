@@ -1,0 +1,7 @@
+#!/bin/bash
+FILES=/dev/tty?
+for f in $FILES
+do
+  echo "Setting Hack on Terminal device..." $f
+  setfont -C $f hack
+done
