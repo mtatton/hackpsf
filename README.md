@@ -9,3 +9,8 @@ hack.ttf license can be found here:
 
   https://github.com/source-foundry/Hack
 
+Needs 
+
+- otf2bdf
+- psf2txt
+

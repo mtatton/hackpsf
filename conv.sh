@@ -1,15 +1,34 @@
-#otf2bdf hack.ttf -c C -o hack.bdf -rh 120 -rv 100 -p 40 # 32x64
-otf2bdf hack.ttf -c C -o hack.bdf -rh 103 -rv 103 -p 20 # 16x32
-#otf2bdf hack.ttf -c C -o hack.bdf -rh 80 -rv 100 -p 11 # 08x16
+#!/bin/bash
+if [ $1 = 0 ]; then
+  otf2bdf hack.ttf -c C -o hack.bdf -rh 120 -rv 100 -p 40 # 32x64
+fi
+if [ $1 = 1 ]; then
+  otf2bdf hack.ttf -c C -o hack.bdf -rh 090 -rv 100 -p 21 # 16x32
+fi
+if [ $1 = 2 ]; then
+  otf2bdf hack.ttf -c C -o hack.bdf -rh 80 -rv 100 -p 11 # 08x16
+fi 
+
 
 AV=$( sed -n 's,AVERAGE_WIDTH ,,p' hack.bdf )
-AV=$(( ( AV + 20 ) / 10 * 10 )) # 32x64
-#AV=$(( ( AV + 20) / 10 * 10 )) # 08x16
+if [ $1 = 0 ]; then
+  AV=$(( ( AV + 20 ) / 10 * 10 )) # 32x64
+fi
+if [ $1 = 1 ]; then
+  AV=$(( ( AV + 40) / 10 * 10 )) # 16x32
+fi
+if [ $1 = 2 ]; then
+  AV=$(( ( AV + 20) / 10 * 10 )) # 08x16
+fi
 #AV=$(( ( AV + 20) / 10 * 10 ))
 
 sed -i "/AVERAGE_WIDTH/s, .*, $AV," hack.bdf
 
 export SETDIR=/usr/share/bdf2psf
+
+#export SETS="\
+#$SETDIR/ascii.set
+#"
 
 export SETS="\
 $SETDIR/ascii.set+\
@@ -34,10 +53,10 @@ echo "\n"
 
 rm -f hack.psfu hack.bdf
 
-sudo setfont  -v hack-$pxsize.psfu.gz
+sudo setfont  -v hack-$pxsize.psfx.gz
 sudo showconsolefont
 
-#read
+read -n 1 x
 
 #qodem
 
